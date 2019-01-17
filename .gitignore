@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+# Configuration files
+config/*
+!config/default-0.json

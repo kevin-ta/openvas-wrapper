@@ -1,0 +1,9 @@
+{
+  // OpenVAS configs
+  "omp": {
+    "path": "/usr/bin/omp",
+    "host": "127.0.0.1",
+    "port": 9390,
+  },
+  "port": 9001
+}
