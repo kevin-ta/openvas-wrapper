@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 const express     = require('express'),
       app         = express(),
       config      = require('config');
@@ -7,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', function(req, res) {
-    res.send('openvas-wrapper is listening :) !')
+    res.send('openvas-wrapper is listening :) !');
 });
 
 app.post('/:cmd', function(req, res) {
@@ -53,4 +55,4 @@ app.post('/:cmd', function(req, res) {
 
 app.listen(config.get('port'), () =>
     console.log('openvas-wrapper listening on port ' + config.get('port') + ' !')
-)
+);
