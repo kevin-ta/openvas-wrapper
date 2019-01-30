@@ -49,6 +49,8 @@ app.post('/:cmd', function(req, res) {
     }
 
     var omp = sync(config.get('omp.path'), options);
+
+    if(/[a-zA-z0-9]+/.test(omp.stderr)) res.send(omp.stderr);
     res.send(omp.stdout);
 });
 
