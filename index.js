@@ -13,13 +13,13 @@ app.get('/', function(req, res) {
 });
 
 app.post('/:cmd', function(req, res) {
-    var data    = '',
-        name    = '',
-        comment = '',
-        target  = '',
-        format  = '',
-        options = ['--pretty-print', '-h', config.get('omp.host'), '--' + req.params.cmd];
+    var options = ['--pretty-print', '-h', config.get('omp.host')];
 
+    if(req.params.cmd == 'xml' && req.body.xml) {
+        options.push('--xml=' + req.body.xml.replace("<", "\<").replace(">", "\>"));
+    } else {
+        options.push('--' + req.params.cmd);
+    }
     if(req.body.username) {
         options.push('-u');
         options.push(req.body.username);
@@ -53,7 +53,6 @@ app.post('/:cmd', function(req, res) {
     if(/[a-zA-z0-9]+/.test(omp.stderr)) res.send(omp.stderr);
     res.send(omp.stdout);
 });
-
 
 app.listen(config.get('port'), () =>
     console.log('openvas-wrapper listening on port ' + config.get('port') + ' !')
