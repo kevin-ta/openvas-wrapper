@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/kevin-ta/openvas-wrapper#readme",
   "dependencies": {
-    "config": "^3.0.1",
-    "express": "^4.16.4"
+    "config": "^3.2.2",
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "jshint": "^2.9.7"
+    "jshint": "^2.10.2"
   }
 }
